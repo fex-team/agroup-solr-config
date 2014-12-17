@@ -6,17 +6,17 @@
    <field name="_root_" type="string" indexed="true" stored="false"/>
     <!--START-->
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
-   <field name="message" type="textComplex" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="text" type="textComplex" indexed="true" stored="true" required="true" multiValued="false" /> 
    <field name="status" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
    <field name="type" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
    <field name="group_id" type="int" indexed="true" stored="true" required="true" multiValued="false" /> 
    <field name="user_id" type="int" indexed="true" stored="true" required="true" multiValued="false" /> 
-
+   <field name="create_at" type="long" stored="true" required="true" multiValued="false" /> 
 
    <field name="content" type="textComplex" indexed="true" stored="false" multiValued="true"/>
    <!--End-->
  <uniqueKey>id</uniqueKey>
-   <copyField source="message" dest="content"/>
+   <copyField source="text" dest="content"/>
 	 <fieldType name="textComplex" class="solr.TextField" positionIncrementGap="100" >  
       <analyzer>  
           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex"/>  
